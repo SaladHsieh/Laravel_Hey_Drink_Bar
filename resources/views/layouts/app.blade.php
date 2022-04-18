@@ -16,8 +16,8 @@
 
       </div>
       <div class="flex">
-        <div class="font-bold px-3 py-2 text-slate-700 rounded-lg hover:bg-slate-100 hover:text-slate-900 cursor-pointer">Sign In</div>
-        <div class="font-bold px-3 py-2 text-slate-700 rounded-lg hover:bg-slate-100 hover:text-slate-900 cursor-pointer">Register</div>
+        <a href="" class="font-bold px-3 py-2 text-slate-700 rounded-lg hover:bg-slate-100 hover:text-slate-900">Sign In</a>
+        <a href="{{ route('register') }}" class="font-bold px-3 py-2 text-slate-700 rounded-lg hover:bg-slate-100 hover:text-slate-900">Register</a>
       </div>
     </div>
     @yield('content')
