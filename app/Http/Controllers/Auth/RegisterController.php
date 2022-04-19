@@ -15,6 +15,8 @@ class RegisterController extends Controller
   }
   public function store(Request $request)
   {
+    // dd($request->only('phone', 'password'));
+
     // validation
     $this->validate($request, [
       'account' => 'required|max:255',
@@ -32,9 +34,9 @@ class RegisterController extends Controller
     ]);
 
     // sign the user in
-    auth()->attempt($request->only('email', 'password'));
+    auth()->attempt($request->only('phone', 'password'));
 
     // redirect
-    return redirect()->route('home');
+    return redirect()->route('dashboard');
   }
 }

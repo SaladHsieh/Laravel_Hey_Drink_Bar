@@ -2,8 +2,8 @@
 
 @section('content')
     <div class="flex justify-center">
-        <div class="w-8/12 bg-white p-6 rounded-lg">
-            Welcome Home!!
+        <div class="text-xl font-medium bg-white mt-12 p-6 rounded-lg border-b-24">
+            Welcome Home!!!
         </div>
     </div>
 @endsection
