@@ -19,9 +19,9 @@ class RegisterController extends Controller
 
     // validation
     $this->validate($request, [
-      'account' => 'required|max:255',
-      'username' => 'required|max:255',
-      'phone' => 'required|max:255',
+      'account' => 'required|unique:users|max:255',
+      'username' => 'required|unique:users|max:255',
+      'phone' => 'required|unique:users|max:255',
       'password' => 'required|confirmed', // make sure the info you submitted matches _confirmation name
     ]);
 
