@@ -1,9 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
-<nav class="flex justify-center space-x-4">
+<div class="flex justify-center space-x-4">
   <div class="font-bold text-xl px-3 py-2 text-slate-700 rounded-lg">Place an Order</div>
-</nav>
+</div>
 <div class="w-1/3 mx-auto my-7">
   <form>
     <label class="block mb-3">

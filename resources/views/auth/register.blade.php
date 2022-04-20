@@ -1,12 +1,12 @@
 @extends('layouts.app')
 
 @section('content')
-<nav class="flex justify-center space-x-4">
+<div class="flex justify-center space-x-4">
   <div class="font-bold text-xl px-3 py-2 text-slate-700 rounded-lg">Register Now</div>
-</nav>
+</div>
 <div class="w-1/3 mx-auto my-7">
   <form action="{{ route('register') }}" method="post">
-     @csrf {{-- token store inside of the form, which is submitted along with the form --}}
+    @csrf {{-- token store inside of the form, which is submitted along with the form --}}
     <label class="block mb-3">
       <span class="block text-sm font-medium text-slate-700">Account</span>
       <input type="text"  name="account" id="account" placeholder="account"
