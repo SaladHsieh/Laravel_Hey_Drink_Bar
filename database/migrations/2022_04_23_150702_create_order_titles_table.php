@@ -13,13 +13,11 @@ return new class extends Migration
    */
   public function up()
   {
-    Schema::create('orders', function (Blueprint $table) {
+    Schema::create('order_titles', function (Blueprint $table) {
       $table->id();
-      $table->string('item');
-      $table->string('ice');
-      $table->string('sugar');
-      $table->integer('qty');
-      $table->string('note')->nullable();
+      $table->string('title')->nullable();
+      $table->string('image')->nullable();
+      $table->string('total_qty');
       $table->timestamps();
     });
   }
