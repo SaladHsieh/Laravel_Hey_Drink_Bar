@@ -37,6 +37,6 @@ class RegisterController extends Controller
     auth()->attempt($request->only('phone', 'password'));
 
     // redirect
-    return redirect()->route('dashboard');
+    return redirect()->route('order');
   }
 }
