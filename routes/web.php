@@ -23,43 +23,7 @@ Route::post('/login', [LoginController::class, 'store']);
 Route::get('/register', [RegisterController::class, 'index'])->name('register');
 Route::post('/register', [RegisterController::class, 'store']);
 
-// TODO: order
-// TODO: 缺 Order Title & 上傳 Menu
-// 結束跳轉到 OrderList 頁面
+// order
+// Jump to OrderList
 Route::get('/order', [OrderController::class, 'index'])->name('order');
 Route::post('/order', [OrderController::class, 'store']);
-
-// Task example
-Route::get('/task', function () {
-  return view('task');
-})->name('task');
-Route::post('/task', function (Request $request) {
-  // dd($request);
-  $request->validate([
-    'item' => 'required|string',
-    'ice' => 'required|string',
-    'sugar' => 'required|string',
-    'qty' => 'required|numeric',
-    'note' => 'nullable|string',
-  ]);
-
-  $qty = count($request->qty);
-  for ($i = 0; $i < $qty; $i++) {
-    $task = new Task();
-    $task->item = $request->item[$i];
-    $task->ice = $request->ice[$i];
-    $task->sugar = $request->sugar[$i];
-    $task->qty = $request->qty[$i];
-    $task->note = $request->note[$i];
-    $task->save();
-  }
-
-  return redirect()->back();
-});
-
-Route::get(
-  '/posts',
-  function () {
-    return view('posts.index');
-  }
-);
