@@ -15,6 +15,7 @@ return new class extends Migration
   {
     Schema::create('orders', function (Blueprint $table) {
       $table->id();
+      $table->foreignId('order_titles_id')->constrained()->onDelete('cascade'); // cascade delete -> delete a order_title cascade and delete the order
       $table->string('item');
       $table->string('ice');
       $table->string('sugar');
