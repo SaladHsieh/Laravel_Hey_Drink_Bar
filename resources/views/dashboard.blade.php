@@ -1,11 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="flex justify-center space-x-4">
-  <div class="font-bold text-xl px-3 py-2 text-slate-700 rounded-lg">Place an Order</div>
-</div>
+<nav class="flex justify-center space-x-4">
+  <div class="font-bold text-xl px-3 py-2 text-slate-700 rounded-lg">Dashboard</div>
+</nav>
 <div class="w-1/3 mx-auto my-7">
-  <form>
+  {{-- <form>
     <label class="block mb-3">
       <span class="block text-sm font-medium text-slate-700">Account</span>
       <input type="account" placeholder="account" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400
@@ -38,6 +38,6 @@
     <button class="hover:-translate-y-0.5 transition motion-reduce:hover:translate-y-0 motion-reduce:transition-none bg-amber-400 text-white shadow-sm hover:shadow-md hover:bg-amber-500 border-slate-300 rounded-md mt-1 block w-20 px-3 py-2 mx-auto shadow-m">
       Submit
     </button>
-  </form>
+  </form> --}}
 </div>
 @endsection

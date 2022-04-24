@@ -13,14 +13,14 @@ return new class extends Migration
    */
   public function up()
   {
-    Schema::create('users', function (Blueprint $table) {
+    Schema::create('orders', function (Blueprint $table) {
       $table->id();
-      $table->string('account')->unique();
-      $table->string('username')->unique();
-      $table->string('phone')->unique();
-      $table->timestamp('email_verified_at')->nullable();
-      $table->string('password');
-      $table->rememberToken();
+      $table->foreignId('order_titles_id')->constrained()->onDelete('cascade'); // cascade delete -> delete a order_title cascade and delete the order
+      $table->string('item');
+      $table->string('ice');
+      $table->string('sugar');
+      $table->integer('qty');
+      $table->string('note')->nullable();
       $table->timestamps();
     });
   }
