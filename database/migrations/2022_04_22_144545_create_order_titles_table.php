@@ -15,6 +15,7 @@ return new class extends Migration
   {
     Schema::create('order_titles', function (Blueprint $table) {
       $table->id();
+      $table->foreignId('users_id')->constrained()->onDelete('cascade');
       $table->string('title')->nullable();
       $table->string('image')->nullable();
       $table->string('total_qty');

@@ -15,4 +15,8 @@ class Order extends Model
     'qty',
     'note',
   ];
+  public function likedBy(OrderTitle $order_titles)
+  {
+    return $this->likes->contains('order_titles_id', $order_titles->id);
+  }
 }
