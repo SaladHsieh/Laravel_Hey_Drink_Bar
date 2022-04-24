@@ -17,9 +17,9 @@
       </div>
       <div class="flex">
         @auth
+        <div class="font-bold px-3 py-2 text-slate-700 rounded-lg hover:bg-slate-100 hover:text-slate-900">Hi, {{ auth()->user()->username }}</div>
           <a href="{{ route('order') }}" class="font-bold px-3 py-2 text-amber-500 rounded-lg hover:bg-slate-100 hover:text-amber-600">Order</a>
           {{-- <a href="/posts" class="font-bold px-3 py-2 text-amber-500 rounded-lg hover:bg-slate-100 hover:text-amber-600">View Order</a> --}}
-          {{-- <div href="" class="font-bold px-3 py-2 text-slate-700 rounded-lg hover:bg-slate-100 hover:text-slate-900">User name</div> --}}
           <form action="{{ route('logout') }}" method="post" >
             @csrf
             <button type="submit" class="font-bold px-3 py-2 text-slate-700 rounded-lg hover:bg-slate-100 hover:text-slate-900">Logout</button>
