@@ -16,6 +16,22 @@ class OrderController extends Controller
   public function store(Request $request)
   {
     // dd($request);
+
+    // Insert to OrderTitle DB
+    $count = count($request->item);
+    $total_qty = 0;
+    $user_id = auth()->user()->id;
+
+    for ($j = 1; $j <= $count; $j++) {
+      $total_qty += $request->qty[$j];
+    }
+    OrderTitle::create([
+      'users_id' => $user_id,
+      'title' => $request->order_title,
+      'image' => $request->menu_image,
+      'total_qty' => $total_qty,
+    ]);
+
     $request->validate([
       'item' => 'required',
       'ice' => 'required',
@@ -24,29 +40,17 @@ class OrderController extends Controller
       'note' => 'required',
     ]);
 
-    $count = count($request->item);
-
     // Insert to Order DB
     for ($i = 1; $i <= $count; $i++) {
       $order = new Order;
       $order->item = $request->item[$i];
+      $order->order_titles_id = '1';
       $order->ice = $request->ice[$i];
       $order->sugar = $request->sugar[$i];
       $order->qty = $request->qty[$i];
       $order->note = $request->note[$i];
       $order->save();
     }
-
-    // Insert to OrderTitle DB
-    $total_qty = 0;
-    for ($j = 1; $j <= $count; $j++) {
-      $total_qty += $request->qty[$j];
-    }
-    OrderTitle::create([
-      'title' => $request->order_title,
-      'image' => $request->menu_image,
-      'total_qty' => $total_qty,
-    ]);
 
     return redirect()->back();
   }
