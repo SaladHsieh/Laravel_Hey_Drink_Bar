@@ -9,6 +9,11 @@ use App\Http\Controllers\Controller;
 
 class OrderController extends Controller
 {
+  // user middleware to protect routes
+  public function __construct()
+  {
+    $this->middleware(['auth']);
+  }
   public function index()
   {
     return view('order.index');
@@ -25,7 +30,8 @@ class OrderController extends Controller
     for ($j = 1; $j <= $count; $j++) {
       $total_qty += $request->qty[$j];
     }
-    OrderTitle::create([
+
+    $order_title_id = OrderTitle::create([
       'users_id' => $user_id,
       'title' => $request->order_title,
       'image' => $request->menu_image,
@@ -44,7 +50,7 @@ class OrderController extends Controller
     for ($i = 1; $i <= $count; $i++) {
       $order = new Order;
       $order->item = $request->item[$i];
-      $order->order_titles_id = '1';
+      $order->order_titles_id = $order_title_id->id;
       $order->ice = $request->ice[$i];
       $order->sugar = $request->sugar[$i];
       $order->qty = $request->qty[$i];
